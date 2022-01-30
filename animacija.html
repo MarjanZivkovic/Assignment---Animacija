@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animacija</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #050210;
+            overflow: hidden;
+        }
+        @keyframes big-animation{
+            0%{
+                transform: rotate(0deg);
+            }
+            25%{
+                transform: rotate(90deg);
+            }
+            50%{
+                transform: rotate(180deg);
+            }
+            75%{
+                transform: rotate(270deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        #big-circle{
+            position: relative;
+            width: 380px;
+            height: 380px;
+            margin: 140px auto;
+            padding: 25px;
+            border-radius: 50%;
+            background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+            animation-name: big-animation;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+        #big-circle::after{
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 105%;
+            height: 105%;
+            border-radius: 50%;
+            background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+            filter: blur(60px) saturate(0.8);
+            z-index: -1;
+        }
+        #small-circle{
+            background-color: #050210;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        @keyframes small-animation{
+            0%{
+                width: 10%;
+                height: 10%;
+            }
+            20%{
+                width: 25%;
+                height: 25%;
+            }
+            40%{
+                width: 40%;
+                height: 40%;
+            }
+            60%{
+                width: 60%;
+                height: 60%;
+            }
+            80%{
+                width: 85%;
+                height: 85%;
+            }
+            100%{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        #small-circle::before{
+            content: "";
+            width: 10%;
+            height: 10%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background-color: #08041d;
+            animation-name: small-animation;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="big-circle">
+        <div id="small-circle"></div>
+    </div>
+</body>
+</html>
